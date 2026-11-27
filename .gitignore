@@ -1,0 +1,17 @@
+# Archivos que NO deben subirse
+.env
+*.env
+*.key
+*.pem
+node_modules/
+*.zip
+*.rar
+*.bak
+*.psd
+*.ai
+*.pdf
+originales/
+privado/
+borradores/
+.DS_Store
+Thumbs.db

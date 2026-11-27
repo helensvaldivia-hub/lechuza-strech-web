@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lechuza_strech | Kits, Tutoriales y Clases</title>
+    <meta name="description" content="Kits de mostacilla calibrada y aguja mágica, tutoriales y clases personalizadas. Diseños geek y anime hechos a mano en Chile.">
+    <meta name="theme-color" content="#1b4d3e">
+    <meta property="og:title" content="lechuza_strech | Mostacillas, Lanas & Arte a Medida">
+    <meta property="og:description" content="Kits creativos, tutoriales y trabajos personalizados. Hecho a mano en Chile.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="descarga.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #1b4d3e;
+            --emerald-green: #2d6a4f;
+            --light-green: #d8f3dc;
+            --mint-bg: #f4fbf7;
+            --ivory: #faf9f6;
+            --text-dark: #1a2e23;
+            --text-muted: #4a6b5d;
+            --white: #ffffff;
+            --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+            --shadow: 0 10px 30px rgba(27, 77, 62, 0.12);
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            background-color: var(--ivory);
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* HEADER & NAV */
+        header {
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* LOGO MÁS GRANDE Y DESTACADO */
+        .logo-img-header {
+            height: 70px;
+            width: 70px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--emerald-green);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text span {
+            color: var(--emerald-green);
+            font-weight: 600;
+            font-size: 0.8rem;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--emerald-green);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-green);
+            color: var(--white) !important;
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            transition: all 0.3s !important;
+            box-shadow: 0 4px 15px rgba(27, 77, 62, 0.3);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--emerald-green) !important;
+            transform: translateY(-2px);
+        }
+
+        /* HERO: texto a la izquierda, búho visible a la derecha */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            min-height: 560px;
+            padding: 6rem 2rem;
+            background: linear-gradient(90deg, #1b4d3e 0%, #1b4d3e 50%, #245f4c 100%);
+            color: var(--white);
+            border-bottom: 5px solid var(--light-green);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            aspect-ratio: 726 / 768;
+            background: linear-gradient(90deg, rgba(27, 77, 62, 0.35), rgba(27, 77, 62, 0) 60%), url('buho-hero.jpg') center / cover no-repeat;
+            -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 38%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content > * { max-width: 560px; }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+            color: var(--light-green);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--light-green);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--light-green);
+            color: var(--primary-green);
+        }
+
+        /* CONTAINER GENERAL */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 0.8rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--emerald-green);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* ABOUT / QUIÉNES SOMOS */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 3.5rem;
+            align-items: center;
+            background: var(--white);
+            padding: 3.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            border-left: 8px solid var(--primary-green);
+        }
+
+        .about-text h3 {
+            color: var(--primary-green);
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        .about-img-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .about-img-grid img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .about-img-grid img:hover {
+            transform: scale(1.03);
+        }
+
+        /* KITS & CATALOG */
+        .filter-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: var(--white);
+            border: 2px solid var(--light-green);
+            padding: 0.7rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background-color: var(--primary-green);
+            color: var(--white);
+            border-color: var(--primary-green);
+            transform: translateY(-2px);
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(45, 106, 79, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(27, 77, 62, 0.18);
+        }
+
+        .card-img-container {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .card-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.06);
+        }
+
+        .card-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--light-green);
+            color: var(--primary-green);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1.35rem;
+            color: var(--primary-green);
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #edf2f7;
+            padding-top: 1.2rem;
+            margin-top: auto;
+        }
+
+        .price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        /* TUTORIALES SECTION */
+        .tutorials-section {
+            background: linear-gradient(135deg, var(--mint-bg) 0%, #e8f5ec 100%);
+            padding: 6rem 2rem;
+            border-top: 3px solid var(--light-green);
+            border-bottom: 3px solid var(--light-green);
+        }
+
+        .tutorial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tutorial-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border-top: 6px solid var(--primary-green);
+            transition: transform 0.3s;
+        }
+
+        .tutorial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tutorial-card h4 {
+            color: var(--primary-green);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .tutorial-card h4 i {
+            background: var(--light-green);
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 1rem;
+        }
+
+        .tutorial-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* CUSTOM ORDER & CONTACT */
+        .custom-section {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 4rem;
+            box-shadow: var(--shadow);
+            max-width: 850px;
+            margin: 0 auto;
+            border: 2px solid var(--light-green);
+        }
+
+        .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-family: inherit;
+            transition: all 0.3s;
+            font-size: 1rem;
+            background-color: var(--ivory);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px var(--light-green);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--primary-green);
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-top: 5rem;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            font-size: 1.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            background: rgba(255,255,255,0.1);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--light-green);
+            color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+        a:focus-visible, button:focus-visible, .form-control:focus-visible {
+            outline: 3px solid var(--emerald-green);
+            outline-offset: 3px;
+        }
+
+        .btn-card {
+            padding: 0.5rem 1.2rem;
+            font-size: 0.9rem;
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        .btn-card:hover { background-color: var(--emerald-green); }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { transition: none !important; }
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .menu-toggle { display: block; }
+            .nav-container { position: relative; padding: 0.8rem 1rem; }
+            .logo-img-header { height: 56px; width: 56px; }
+            .logo-text { font-size: 1.2rem; }
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 1rem;
+                padding: 1.5rem 2rem;
+                background: var(--white);
+                box-shadow: var(--shadow);
+                text-align: center;
+            }
+            nav.open ul { display: flex; }
+            .hero { padding: 5rem 1rem; }
+            .container { padding: 3rem 1.2rem; }
+            #kits { padding: 3rem 1.2rem !important; }
+            .about-grid { padding: 1.8rem; }
+            .custom-section { padding: 2rem 1.2rem; }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+        }
+    
+        .icon { width: 1.15em; height: 1.15em; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+        .step-num { display: inline-flex; align-items: center; justify-content: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--emerald-green); color: var(--white); font-size: 0.95rem; margin-right: 0.5rem; }
+
+        .social-icons { gap: 1rem; flex-wrap: wrap; font-size: 1rem; }
+        .social-icons a { width: auto; height: auto; padding: 0.75rem 1.5rem; border-radius: 50px; gap: 0.6rem; font-weight: 500; text-decoration: none; }
+
+        .contact-direct { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--light-green); text-align: center; color: var(--primary-green); }
+        .contact-direct p { margin-bottom: 1rem; font-weight: 500; }
+        .contact-direct div { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+        .contact-direct a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1.3rem; border: 2px solid var(--primary-green); border-radius: 50px; color: var(--primary-green); font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .contact-direct a:hover { background: var(--primary-green); color: var(--white); }
+
+        .field-error { display: none; margin-top: 0.4rem; font-size: 0.88rem; color: #b42318; }
+        .form-control.invalid { border-color: #b42318; }
+        .form-control.invalid + .field-error, .field-error.show { display: block; }
+        #form-status { margin-top: 1rem; text-align: center; font-weight: 500; color: var(--primary-green); }
+
+        @media (max-width: 1000px) {
+            .hero::before { left: 0; aspect-ratio: auto; opacity: 0.3; -webkit-mask-image: none; mask-image: none; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { min-height: 0; padding: 4rem 1.2rem; }
+            .hero h1 { font-size: 2.1rem; }
+            .hero-buttons .btn { width: 100%; justify-content: center; }
+        }
+    
+        /* TIPOGRAFÍA ACTUAL / GEEK: Space Grotesk + JetBrains Mono para datos */
+        button, input, select, textarea { font-family: inherit; }
+        h1, h2, h3, h4 { letter-spacing: -0.02em; }
+        .badge, .price, .step-num, footer p:last-of-type { font-family: var(--font-mono); letter-spacing: 0; }
+        .badge { text-transform: none; font-weight: 500; font-size: 0.78rem; }
+        .price { font-size: 0.95rem; font-weight: 500; }
+        
+        /* ===== CATÁLOGO, LISTA DE PEDIDO Y SECCIONES NUEVAS ===== */
+        .tabs { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; margin-bottom: 1.5rem; }
+        .hero-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.8rem; list-style: none; }
+        .hero-chips li { border: 1px solid rgba(216,243,220,0.5); border-radius: 50px; padding: 0.3rem 0.9rem; font-size: 0.85rem; color: var(--light-green); }
+        .catalog-controls { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 1rem; }
+        .catalog-controls label { color: var(--primary-green); font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 0.5rem; }
+        .catalog-controls select { padding: 0.55rem 1rem; border: 2px solid var(--light-green); border-radius: 30px; background: var(--white); color: var(--primary-green); font-weight: 500; }
+        .catalog-meta { text-align: center; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 2rem; }
+        .catalog-note { text-align: center; color: var(--text-muted); font-size: 0.88rem; margin-top: 2rem; }
+        .specs { list-style: none; display: grid; gap: 0.15rem; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; }
+        .specs strong { color: var(--primary-green); font-weight: 600; }
+        .card .card-footer { flex-direction: column; align-items: flex-start; gap: 0.8rem; margin-top: auto; }
+        .card-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .btn-ghost { padding: 0.5rem 1rem; font-size: 0.85rem; background: transparent; color: var(--primary-green); border: 2px solid var(--light-green); }
+        .btn-ghost:hover { border-color: var(--primary-green); background: transparent; color: var(--primary-green); }
+        .empty-state { grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 2rem; }
+
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1.5rem; }
+        .info-card { background: var(--white); border-radius: var(--radius); padding: 1.8rem; box-shadow: var(--shadow); border-top: 6px solid var(--primary-green); }
+        .info-card h4 { color: var(--primary-green); font-size: 1.15rem; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.4rem; }
+        .info-card p { color: var(--text-muted); }
+        .faq { max-width: 800px; margin: 0 auto; display: grid; gap: 0.8rem; }
+        .faq details { background: var(--white); border: 2px solid var(--light-green); border-radius: 14px; padding: 1rem 1.3rem; }
+        .faq summary { cursor: pointer; font-weight: 600; color: var(--primary-green); }
+        .faq details[open] { border-color: var(--emerald-green); }
+        .faq details p { margin-top: 0.8rem; color: var(--text-muted); }
+
+        .cart-btn { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 12px; border: 2px solid var(--primary-green); background: none; color: var(--primary-green); cursor: pointer; font-size: 1.2rem; }
+        .cart-btn span { position: absolute; top: -8px; right: -8px; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 11px; background: var(--primary-green); color: var(--white); font-size: 0.75rem; display: flex; align-items: center; justify-content: center; }
+        .cart-backdrop { position: fixed; inset: 0; background: rgba(15,35,27,0.5); opacity: 0; visibility: hidden; transition: opacity 0.3s; z-index: 1000; }
+        .cart { position: fixed; top: 0; right: 0; bottom: 0; width: min(100%, 420px); background: var(--white); z-index: 1001; display: flex; flex-direction: column; transform: translateX(100%); visibility: hidden; transition: transform 0.3s, visibility 0.3s; box-shadow: -10px 0 30px rgba(0,0,0,0.2); }
+        body.cart-open .cart { transform: none; visibility: visible; }
+        body.cart-open .cart-backdrop { opacity: 1; visibility: visible; }
+        .cart-head { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.5rem; border-bottom: 1px solid var(--light-green); }
+        .cart-head h3 { color: var(--primary-green); }
+        .cart-head button { background: none; border: none; font-size: 2rem; line-height: 1; cursor: pointer; color: var(--primary-green); }
+        .cart-items { list-style: none; flex: 1; overflow-y: auto; padding: 1rem 1.5rem; }
+        .cart-items li { display: grid; grid-template-columns: 56px 1fr; gap: 0.8rem; padding: 0.8rem 0; border-bottom: 1px solid var(--mint-bg); }
+        .cart-items img { width: 56px; height: 56px; object-fit: cover; border-radius: 10px; }
+        .cart-items .nm { font-weight: 600; color: var(--primary-green); font-size: 0.95rem; }
+        .cart-items .pr { font-size: 0.85rem; color: var(--text-muted); }
+        .qty { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 0.3rem; }
+        .qty button { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--light-green); background: var(--white); color: var(--primary-green); cursor: pointer; font-weight: 700; }
+        .qty .rm { width: auto; border-radius: 8px; border: none; padding: 0 0.4rem; font-weight: 500; font-size: 0.8rem; text-decoration: underline; }
+        .cart-empty { text-align: center; color: var(--text-muted); padding: 2rem 0; display: block !important; }
+        .cart-foot { padding: 1.2rem 1.5rem 1.5rem; border-top: 1px solid var(--light-green); background: var(--mint-bg); }
+        .cart-total { margin-bottom: 1rem; color: var(--primary-green); font-size: 1.05rem; }
+        .cart-foot label { display: block; font-weight: 600; color: var(--primary-green); margin-bottom: 0.4rem; }
+        .cart-clear { display: block; margin: 0.8rem auto 0; background: none; border: none; color: var(--text-muted); text-decoration: underline; cursor: pointer; font-size: 0.85rem; }
+        .toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); background: var(--primary-green); color: var(--white); padding: 0.7rem 1.4rem; border-radius: 50px; opacity: 0; transition: all 0.3s; z-index: 1100; pointer-events: none; font-size: 0.9rem; }
+        .toast.show { opacity: 1; transform: translate(-50%, 0); }
+        @media (max-width: 768px) { .nav-container .cart-btn { margin-left: auto; margin-right: 0.6rem; } }
+            .form-hint { display: block; margin-top: 0.4rem; font-size: 0.85rem; color: var(--text-muted); }
+        .custom-cta { margin: 2.5rem auto 0; max-width: 760px; text-align: center; background: var(--mint-bg); border: 2px dashed var(--emerald-green); border-radius: var(--radius); padding: 1.5rem; color: var(--primary-green); }
+        .custom-cta p { margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER CON LOGO GRANDE -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="descarga.jpg" alt="Logo lechuza_strech" class="logo-img-header">
+                <div class="logo-text">
+                    lechuza_strech
+                    <span>Mostacillas, Lanas & Arte a Medida</span>
+                </div>
+            </div>
+            <nav id="menu-principal" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Quiénes Somos</a></li>
+                    <li><a href="#kits">Kits & Insumos</a></li>
+                    <li><a href="#tutoriales">Tutoriales</a></li>
+                    <li><a href="#clases">Clases</a></li>
+                    <li><a href="#faq">Preguntas</a></li>
+                    <li><a href="https://wa.me/56993000583" target="_blank" rel="noopener noreferrer" class="cta-btn"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> Pedidos y Clases</a></li>
+                </ul>
+            </nav>
+            <button class="cart-btn" id="cart-open" aria-label="Abrir mi lista de pedido"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span id="cart-count">0</span></button>
+            <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal" onclick="toggleMenu(this)"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+        </div>
+    </header>
+
+    <main>
+
+    <!-- HERO SECTION CON FONDO DE BÚHO Y LANAS VISIBLE -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Tejiendo Arte, Magia y Cultura Geek en Cada Detalle</h1>
+            <p>Kits completos de mostacilla calibrada, aguja mágica y punto cruz. Diseños geeks, anime y personalizados hechos a mano y a tu medida.</p>
+            <div class="hero-buttons">
+                <a href="#kits" class="btn btn-primary"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg> Ver Kits Disponibles</a>
+                <a href="#contacto" class="btn btn-outline"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><polygon points="12 3 1 9 12 15 23 9 12 3"/><path d="M5 12v5c0 1.5 3 3 7 3s7-1.5 7-3v-5"/></svg> Agendar Clase</a>
+            </div>
+            <ul class="hero-chips"><li>Pedidos por WhatsApp</li><li>Guía paso a paso</li><li>Envíos a todo Chile</li></ul>
+        </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section id="nosotros" class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Pasión por Crear y Enseñar</h3>
+                <p><strong>lechuza_strech</strong> nació del deseo constante de recrear con nuestras propias manos aquello que visualizamos, entendiendo los secretos de las técnicas tradicionales para adaptarlas a los tiempos de hoy.</p>
+                <p>Con más de 8 a 9 años de trayectoria, buscamos fomentar las manualidades en las nuevas generaciones, demostrando que el arte textil y los abalorios pueden conectar con la cultura geek, el anime y los videojuegos.</p>
+            </div>
+            <div class="about-img-grid">
+                <img src="dali.jpg" alt="Bordado con aguja mágica estilo Dalí" loading="lazy">
+                <img src="grito.jpg" alt="Pulsera de telar con El Grito en mostacilla" loading="lazy">
+                <img src="cojinhisoka.jpg" alt="Cojín de aguja mágica de Hisoka" loading="lazy">
+                <img src="lentes.jpg" alt="Cadena para lentes en mostacilla calibrada con flores" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- KITS & CATALOG -->
+    <section id="kits" class="container" style="background-color: var(--white); border-radius: var(--radius); padding: 5rem 3rem; box-shadow: var(--shadow);">
+        <div class="section-title">
+            <h2>Kits Creativos e Insumos</h2>
+            <p>Elige técnica y nivel. Cada kit incluye los materiales exactos y una guía paso a paso.</p>
+        </div>
+
+        <div class="tabs" role="group" aria-label="Filtrar por técnica">
+            <button class="tab-btn active" data-cat="all">Todos</button>
+            <button class="tab-btn" data-cat="mostacilla">Mostacilla Calibrada</button>
+            <button class="tab-btn" data-cat="punch">Aguja Mágica / Punch Needle</button>
+            <button class="tab-btn" data-cat="puntocruz">Punto Cruz</button>
+        </div>
+
+        <div class="catalog-controls">
+            <label>Nivel
+                <select id="f-nivel"><option value="all">Todos los niveles</option><option>Principiante</option><option>Intermedio</option><option>Avanzado</option></select>
+            </label>
+            <label>Ordenar por
+                <select id="f-orden"><option value="orig">Destacados</option><option value="asc">Precio: menor a mayor</option><option value="desc">Precio: mayor a menor</option></select>
+            </label>
+        </div>
+        <p class="catalog-meta" id="catalogo-meta" aria-live="polite"></p>
+
+        <div class="grid-cards" id="catalogo"></div>
+        <div class="custom-cta">
+            <p><strong>Los diseños son una referencia: tú eliges.</strong> ¿Quieres otro personaje, otros colores o un tamaño distinto? Cada kit se adapta a tu idea.</p>
+            <a class="btn btn-primary btn-card" href="#contacto" id="pedir-diseno">Quiero mi propio diseño</a>
+        </div>
+        <p class="catalog-note">Valores referenciales en pesos chilenos (CLP), sin costo de envío. Cada kit se prepara a pedido: confirmamos disponibilidad y plazo por WhatsApp antes de que pagues.</p>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona" class="container">
+        <div class="section-title">
+            <h2>Cómo Funciona tu Pedido</h2>
+            <p>Comprar es simple y todo se coordina por WhatsApp.</p>
+        </div>
+        <div class="info-grid">
+            <div class="info-card"><h4><span class="step-num">1</span> Elige tus kits</h4><p>Agrégalos a tu lista de pedido o cuéntanos tu propio diseño: la elección siempre es tuya.</p></div>
+            <div class="info-card"><h4><span class="step-num">2</span> Confirmamos por WhatsApp</h4><p>Te respondemos con disponibilidad, plazo de preparación y costo de envío.</p></div>
+            <div class="info-card"><h4><span class="step-num">3</span> Pagas por transferencia</h4><p>Pago por transferencia o depósito. Tu pedido se prepara una vez confirmado.</p></div>
+            <div class="info-card"><h4><span class="step-num">4</span> Recibes y creas</h4><p>Despachamos a todo Chile. Tu kit llega con guía paso a paso para que armes tu pieza.</p></div>
+        </div>
+    </section>
+
+    <!-- TUTORIALES SECTION -->
+    <section id="tutoriales" class="tutorials-section">
+        <div class="section-title">
+            <h2>Mini Tutoriales Bead Owl</h2>
+            <p>Guías prácticas para dominar las técnicas de tejido y lectura de patrones.</p>
+        </div>
+
+        <div class="tutorial-grid">
+            <div class="tutorial-card">
+                <h4><span class="step-num">1</span> Enhebrado y Tensión</h4>
+                <p>Enhebra la mostacilla 1 y 2 dando dos giros para asegurar. Suma cuentas hasta alcanzar el largo deseado con tensión firme.</p>
+            </div>
+            <div class="tutorial-card">
+                <h4><span class="step-num">2</span> Aumentos y Disminuciones</h4>
+                <p>Agrega mostacillas 4 y 5 juntas. Si es aumento, engánchate en el hilo de 3 y 2; si es disminución, pásate por el hilo de 2 y 1.</p>
+            </div>
+            <div class="tutorial-card">
+                <h4><span class="step-num">3</span> Cierre y Simetría</h4>
+                <p>Continúa cerrando hileras asegurando el hilo por cuentas anteriores para conservar rigidez y simetría perfecta.</p>
+            </div>
+            <div class="tutorial-card">
+                <h4><span class="step-num">4</span> Patrones Geek</h4>
+                <p>Sigue las matrices de colores para armar tus figuras favoritas (sandías, corazones, pandas, fanarts y cuadros).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLASES -->
+    <section id="clases" class="container">
+        <div class="section-title">
+            <h2>Clases Personalizadas</h2>
+            <p>Aprende mostacilla, aguja mágica o punto cruz con acompañamiento directo.</p>
+        </div>
+        <div class="info-grid">
+            <div class="info-card"><h4>Clase individual</h4><p>Sesión 1 a 1 para aprender desde cero o perfeccionar una técnica a tu ritmo.</p></div>
+            <div class="info-card"><h4>Clase con tu kit</h4><p>Armamos juntas el kit que elijas, paso a paso, con ayuda en los puntos difíciles.</p></div>
+            <div class="info-card"><h4>Grupos pequeños</h4><p>Para amigas, regalos o celebraciones. Eliges la técnica y coordinamos fecha y horario.</p></div>
+        </div>
+        <p class="catalog-note">El valor depende de la modalidad y la cantidad de personas. Cotízalo sin compromiso por WhatsApp.</p>
+        <p style="text-align:center; margin-top:1rem;"><a class="btn btn-primary btn-card" target="_blank" rel="noopener noreferrer" href="https://wa.me/56993000583?text=%C2%A1Hola!%20Quiero%20cotizar%20una%20clase.">Cotizar una clase</a></p>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section id="faq" class="container">
+        <div class="section-title">
+            <h2>Preguntas Frecuentes</h2>
+        </div>
+        <div class="faq">
+            <details><summary>¿Tienen tienda física?</summary><p>No. Somos una tienda 100% online: todos los pedidos se coordinan por WhatsApp y se despachan a todo Chile.</p></details>
+            <details><summary>¿Qué incluye cada kit?</summary><p>Los materiales exactos para completar la pieza y una guía paso a paso. El detalle aparece en la descripción de cada kit.</p></details>
+            <details><summary>Nunca he tejido, ¿puedo partir?</summary><p>Sí. Filtra por nivel Principiante y escríbenos si quieres una recomendación según tu experiencia.</p></details>
+            <details><summary>¿Cómo pago?</summary><p>Por transferencia o depósito. Te enviamos los datos una vez confirmado tu pedido.</p></details>
+            <details><summary>¿Cuánto demora mi pedido?</summary><p>Cada kit se prepara a pedido. Te confirmamos el plazo por WhatsApp según el kit y la cantidad.</p></details>
+            <details><summary>¿Hacen diseños personalizados?</summary><p>Sí. Los patrones del catálogo son solo una referencia: si quieres otro personaje, colores o tamaño, cuéntanos tu idea o envíanos una imagen y lo adaptamos a tu elección. Te cotizamos un kit o una pieza a medida.</p></details>
+        </div>
+    </section>
+
+    <!-- CONTACTO Y PEDIDOS -->
+    <section id="contacto" class="container">
+        <div class="custom-section">
+            <div class="section-title" style="margin-bottom: 2rem;">
+                <h2>Coordina tu Pedido o Trabajo Personalizado</h2>
+                <p>¿Tienes una idea propia o quieres reservar un kit? Escríbenos directamente para coordinar.</p>
+            </div>
+
+            <form onsubmit="enviarPedido(event)" novalidate>
+                <div class="form-group">
+                    <label for="nombre">Tu Nombre:</label>
+                    <input type="text" id="nombre" class="form-control" required minlength="2" maxlength="40" autocomplete="name" aria-describedby="err-nombre" placeholder="Ej: Marcela Soto">
+                    <small class="field-error" id="err-nombre" role="alert"></small>
+                </div>
+                <div class="form-group">
+                    <label for="interes">¿Qué kit o servicio te interesa?</label>
+                    <select id="interes" class="form-control" aria-describedby="err-interes">
+                        <option value="Kit Mostacilla Calibrada">Kit Mostacilla Calibrada</option>
+                        <option value="Kit Aguja Mágica / Alfombra / Cojín">Kit Aguja Mágica / Alfombra / Cojín</option>
+                        <option value="Kit Punto Cruz">Kit Punto Cruz</option>
+                        <option value="Tarjeta de Regalo o Pack">Tarjeta de Regalo o Pack</option>
+                        <option value="Trabajo Personalizado a Pedido">Trabajo Personalizado a Pedido (Diseño Propio)</option>
+                        <option value="Clase Personalizada">Clase Personalizada / Tutorial Completo</option>
+                    </select>
+                    <small class="field-error" id="err-interes" role="alert"></small>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Detalles de tu solicitud:</label>
+                    <textarea id="mensaje" class="form-control" rows="4" required minlength="10" maxlength="500" aria-describedby="err-mensaje" placeholder="Cuéntanos qué diseño, personaje, colores o medidas quieres: tu idea manda."></textarea>
+                    <small class="form-hint">Los patrones del catálogo son una referencia: si tienes un diseño en mente, lo adaptamos a tu elección.</small>
+                    <small class="field-error" id="err-mensaje" role="alert"></small>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; background-color: var(--primary-green); color: var(--white); padding: 1rem; font-size: 1.1rem;">
+                    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg> Enviar Solicitud por WhatsApp
+                </button>
+                <p id="form-status" role="status"></p>
+            </form>
+
+            <div class="contact-direct">
+                <p>¿Prefieres escribirnos directo?</p>
+                <div>
+                    <a href="https://wa.me/56993000583?text=%C2%A1Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+                    <a href="https://instagram.com/lechuza_strech" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <div class="cart-backdrop" id="cart-backdrop"></div>
+    <aside class="cart" id="cart" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div class="cart-head"><h3 id="cart-title">Mi lista de pedido</h3><button id="cart-close" aria-label="Cerrar lista">&times;</button></div>
+        <ul class="cart-items" id="cart-items"></ul>
+        <div class="cart-foot">
+            <p class="cart-total">Total referencial: <strong id="cart-total">$0</strong> <small>(sin envío)</small></p>
+            <label for="cart-nota">¿Algún diseño o cambio que quieras? (opcional)</label>
+            <textarea id="cart-nota" class="form-control" rows="2" maxlength="300" placeholder="Ej: mismos colores pero con otro personaje"></textarea>
+            <label for="cart-nombre" style="margin-top:0.8rem;">Tu nombre</label>
+            <input type="text" id="cart-nombre" class="form-control" maxlength="40" autocomplete="name" placeholder="Ej: Marcela Soto">
+            <small class="field-error" id="err-cart-nombre" role="alert"></small>
+            <button class="btn btn-primary" id="cart-send" style="width:100%;justify-content:center;background-color:var(--primary-green);color:var(--white);margin-top:1rem;">Enviar mi lista por WhatsApp</button>
+            <button class="cart-clear" id="cart-clear">Vaciar lista</button>
+        </div>
+    </aside>
+    <div class="toast" id="toast" role="status"></div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 lechuza_strech | Hecho a mano en Chile.</p>
+        <p style="font-size: 0.9rem; opacity: 0.8;">Mostacillas, Lanas y Creaciones Artesanales.</p>
+        <div class="social-icons">
+            <a href="https://instagram.com/lechuza_strech" target="_blank" rel="noopener noreferrer" aria-label="Abrir el Instagram de lechuza_strech"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>Instagram</span></a>
+            <a href="https://wa.me/56993000583?text=%C2%A1Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp a lechuza_strech"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span>WhatsApp</span></a>
+        </div>
+    </footer>
+
+    <script>
+        const LETRAS = 'A-Za-zÁÉÍÓÚÜÑáéíóúüñ';
+        const RE_NOMBRE = new RegExp('^[' + LETRAS + ']+(?:[ \'\\-][' + LETRAS + ']+)*$');
+        const RE_TEXTO = new RegExp('[' + LETRAS + ']{3,}');
+        const SERVICIOS = Array.from(document.querySelectorAll('#interes option')).map(o => o.value);
+
+        function validarCampo(id) {
+            const el = document.getElementById(id);
+            const v = el.value.trim();
+            let msg = '';
+            if (id === 'nombre') {
+                if (v.length < 2 || v.length > 40 || !RE_NOMBRE.test(v)) msg = '¡Hola! Para saludarte bien, escribe tu nombre solo con letras y espacios (entre 2 y 40 caracteres). ¿Lo revisamos?';
+            } else if (id === 'interes') {
+                if (!SERVICIOS.includes(el.value)) msg = '¡Hola! Cuéntanos qué te interesa eligiendo una opción de la lista.';
+            } else if (id === 'mensaje') {
+                if (v.length < 10) msg = '¡Hola! Cuéntanos un poquito más de tu idea (al menos 10 caracteres) para ayudarte mejor.';
+                else if (v.length > 500) msg = '¡Hola! Tu mensaje quedó larguito: ¿lo resumimos a 500 caracteres o menos?';
+                else if (!RE_TEXTO.test(v) || /(.)\1{6,}/.test(v)) msg = '¡Hola! Necesitamos una descripción con palabras reales para entender qué diseño quieres.';
+            }
+            const err = document.getElementById('err-' + id);
+            err.textContent = msg;
+            err.classList.toggle('show', !!msg);
+            el.classList.toggle('invalid', !!msg);
+            el.setAttribute('aria-invalid', msg ? 'true' : 'false');
+            return !msg;
+        }
+
+        ['nombre', 'interes', 'mensaje'].forEach(id => {
+            const el = document.getElementById(id);
+            el.addEventListener('blur', () => validarCampo(id));
+            el.addEventListener('input', () => { if (el.classList.contains('invalid')) validarCampo(id); });
+        });
+
+        function enviarPedido(e) {
+            e.preventDefault();
+            const status = document.getElementById('form-status');
+            const resultados = ['nombre', 'interes', 'mensaje'].map(validarCampo);
+            if (resultados.includes(false)) {
+                status.textContent = '¡Hola! Revisa los campos marcados y volvemos a intentarlo. ¡Gracias!';
+                document.querySelector('.form-control.invalid').focus();
+                return;
+            }
+            const nombre = document.getElementById('nombre').value.trim();
+            const interes = document.getElementById('interes').value;
+            const mensaje = document.getElementById('mensaje').value.trim();
+
+            const texto = `¡Hola! Soy ${nombre}. Me interesa: ${interes}. Detalles: ${mensaje}`;
+            const url = `https://wa.me/56993000583?text=${encodeURIComponent(texto)}`;
+            status.textContent = 'Abriendo WhatsApp con tu solicitud...';
+            window.open(url, '_blank', 'noopener');
+        }
+
+        function toggleMenu(btn) {
+            const open = document.getElementById('menu-principal').classList.toggle('open');
+            btn.setAttribute('aria-expanded', open);
+            btn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        }
+
+        document.querySelectorAll('#menu-principal a').forEach(a => a.addEventListener('click', () => {
+            document.getElementById('menu-principal').classList.remove('open');
+            const t = document.querySelector('.menu-toggle');
+            t.setAttribute('aria-expanded', 'false');
+            t.setAttribute('aria-label', 'Abrir menú');
+        }));
+
+
+        /* ================= CATÁLOGO (edita precios y datos aquí) ================= */
+        const PRODUCTOS = [
+ {
+  "id": "k01",
+  "cat": "mostacilla",
+  "img": "collar.jpg",
+  "alt": "Kit Mostacilla Calibrada",
+  "tec": "Mostacilla",
+  "nivel": "Intermedio",
+  "nombre": "Kit Collar / Joyería Geométrica",
+  "desc": "Incluye gramos exactos de mostacilla calibrada de alta calidad, hilos especiales, agujas y opción de sumar telar.",
+  "precio": 24990,
+  "tamano": "Largo aprox. 14 cm con flecos",
+  "horas": "8 a 12 horas"
+ },
+ {
+  "id": "k02",
+  "cat": "mostacilla",
+  "img": "aji.jpg",
+  "alt": "Tres ajíes tejidos en mostacilla roja con tallo verde",
+  "tec": "Mostacilla",
+  "nivel": "Principiante",
+  "nombre": "Kit Ajíes en Mostacilla (Charms)",
+  "desc": "Incluye mostacilla roja y verde calibrada, hilo, aguja y patrón paso a paso para tejer tus ajíes en volumen.",
+  "precio": 12990,
+  "tamano": "3 ajíes de 5 cm",
+  "horas": "2 a 3 horas"
+ },
+ {
+  "id": "k03",
+  "cat": "mostacilla",
+  "img": "grito.jpg",
+  "alt": "Pulsera de telar con el diseño de El Grito",
+  "tec": "Mostacilla",
+  "nivel": "Avanzado",
+  "nombre": "Kit Pulsera de Telar «El Grito»",
+  "desc": "Incluye mostacilla calibrada en la paleta de la obra, hilo, agujas, terminaciones y matriz del diseño para telar.",
+  "precio": 26990,
+  "tamano": "Pulsera de 5 x 17 cm",
+  "horas": "12 a 16 horas"
+ },
+ {
+  "id": "k04",
+  "cat": "mostacilla",
+  "img": "nocheestrellada.jpg",
+  "alt": "Aro de mostacilla con flecos inspirado en La Noche Estrellada",
+  "tec": "Mostacilla",
+  "nivel": "Intermedio",
+  "nombre": "Kit Aros Noche Estrellada con Flecos",
+  "desc": "Incluye mostacilla calibrada en azules, negro y amarillo, hilo, agujas, argollas de aro y patrón de flecos.",
+  "precio": 19990,
+  "tamano": "Par de aros de 9 cm",
+  "horas": "6 a 8 horas"
+ },
+ {
+  "id": "k05",
+  "cat": "mostacilla",
+  "img": "nubes.jpg",
+  "alt": "Aros de nube con flecos de arcoíris en mostacilla",
+  "tec": "Mostacilla",
+  "nivel": "Principiante",
+  "nombre": "Kit Aros Nube y Arcoíris",
+  "desc": "Incluye mostacilla calibrada de colores, hilo, agujas, argollas y patrón de nube con flecos de arcoíris.",
+  "precio": 16990,
+  "tamano": "Par de aros de 13 cm",
+  "horas": "5 a 7 horas"
+ },
+ {
+  "id": "k06",
+  "cat": "mostacilla",
+  "img": "tangiro.jpg",
+  "alt": "Aros de mostacilla con flecos en blanco, negro, gris y un sol rojo",
+  "tec": "Mostacilla",
+  "nivel": "Intermedio",
+  "nombre": "Kit Aros Sol Rojo con Flecos",
+  "desc": "Incluye mostacilla calibrada en blanco, negro, gris y rojo, hilo, agujas, argollas y patrón de flecos.",
+  "precio": 17990,
+  "tamano": "Par de aros de 8 cm",
+  "horas": "5 a 7 horas"
+ },
+ {
+  "id": "k07",
+  "cat": "punch",
+  "img": "alfombra1.jpg",
+  "alt": "Kit Alfombra Mickey Mouse",
+  "tec": "Punch Needle",
+  "nivel": "Intermedio",
+  "nombre": "Kit Alfombra Mickey Mouse",
+  "desc": "Incluye aguja mágica, enhebrador, bastidor adaptado, paño tensado e hilos organizados por color.",
+  "precio": 79990,
+  "tamano": "Aprox. 60 x 60 cm",
+  "horas": "20 a 25 horas"
+ },
+ {
+  "id": "k08",
+  "cat": "punch",
+  "img": "alfombre.jpg",
+  "alt": "Kit Alfombra Portal",
+  "tec": "Aguja Mágica",
+  "nivel": "Intermedio",
+  "nombre": "Kit Alfombra Portal Estilo Geek",
+  "desc": "Diseño circular texturizado en tonos verdes y blancos. Incluye lanas especiales y bastidor grande.",
+  "precio": 59990,
+  "tamano": "Redonda de 50 cm",
+  "horas": "12 a 16 horas"
+ },
+ {
+  "id": "k09",
+  "cat": "punch",
+  "img": "cojinhisoka.jpg",
+  "alt": "Kit Cojín Hisoka Anime",
+  "tec": "Punch Needle",
+  "nivel": "Avanzado",
+  "nombre": "Kit Cojín / Cuadro Anime (Hisoka)",
+  "desc": "Proyecto de alta detalle con rostros de anime. Incluye matriz de diseño, lanas texturizadas y tela reforzada.",
+  "precio": 39990,
+  "tamano": "Cojín de 30 x 30 cm",
+  "horas": "10 a 14 horas"
+ },
+ {
+  "id": "k10",
+  "cat": "punch",
+  "img": "estuche.jpg",
+  "alt": "Kit Estuche Gatos",
+  "tec": "Punch Needle",
+  "nivel": "Intermedio",
+  "nombre": "Kit Estuche con Cierre (Gatitos Voladores)",
+  "desc": "Incluye estructura de estuche con cierre, hilos, aguja mágica y diseño bordado de gatitos en el cielo.",
+  "precio": 22990,
+  "tamano": "Estuche de 20 x 10 cm",
+  "horas": "10 a 12 horas"
+ },
+ {
+  "id": "k11",
+  "cat": "punch",
+  "img": "gatos.jpg",
+  "alt": "Kit Posavasos Gatos",
+  "tec": "Aguja Mágica",
+  "nivel": "Principiante",
+  "nombre": "Kit Posavasos Caritas de Gatos",
+  "desc": "Ideal para iniciar en punch needle. Incluye mini bastidor, hilos texturizados y patrón de gatitos.",
+  "precio": 17990,
+  "tamano": "Set de 3 posavasos de 12 cm",
+  "horas": "5 a 7 horas"
+ },
+ {
+  "id": "k12",
+  "cat": "punch",
+  "img": "alfombra2.jpg",
+  "alt": "Alfombra de aguja mágica de Marshall sobre fondo azul",
+  "tec": "Aguja Mágica",
+  "nivel": "Intermedio",
+  "nombre": "Kit Alfombra Marshall (Patrulla Canina)",
+  "desc": "Incluye aguja mágica, enhebrador, bastidor adaptado, paño tensado e hilos organizados por color.",
+  "precio": 69990,
+  "tamano": "Aprox. 50 x 60 cm",
+  "horas": "18 a 22 horas"
+ },
+ {
+  "id": "k13",
+  "cat": "punch",
+  "img": "harry.jpg",
+  "alt": "Posavasos circular de aguja mágica con el andén 9 y 3/4",
+  "tec": "Aguja Mágica",
+  "nivel": "Principiante",
+  "nombre": "Kit Posavasos Andén 9¾",
+  "desc": "Diseño circular con rizo texturizado. Incluye mini bastidor, hilos en crudo y negro, aguja mágica y patrón.",
+  "precio": 12990,
+  "tamano": "Posavasos de 15 cm",
+  "horas": "3 a 4 horas"
+ },
+ {
+  "id": "k14",
+  "cat": "puntocruz",
+  "img": "sailor_moon.jpg",
+  "alt": "Llavero bordado en punto cruz con el rostro de Sailor Moon",
+  "tec": "Punto Cruz",
+  "nivel": "Intermedio",
+  "nombre": "Kit Llavero Sailor Moon en Punto Cruz",
+  "desc": "Incluye tela aida, hilos de bordar por color, aguja, fieltro para el respaldo, argolla de llavero y patrón.",
+  "precio": 12990,
+  "tamano": "Llavero de 4 x 9 cm",
+  "horas": "4 a 6 horas"
+ },
+ {
+  "id": "k15",
+  "cat": "puntocruz",
+  "img": "inuyasha.jpg",
+  "alt": "Mini bordado en punto cruz de Inuyasha",
+  "tec": "Punto Cruz",
+  "nivel": "Principiante",
+  "nombre": "Kit Mini Bordado Inuyasha",
+  "desc": "Incluye tela aida, hilos de bordar, aguja, patrón en cuadrícula y tabla de colores.",
+  "precio": 10990,
+  "tamano": "Mini bordado de 5 x 5 cm",
+  "horas": "3 a 4 horas"
+ }
+];
+        const VIDEOS = {}; // opcional: { k01: 'https://youtube.com/...' } muestra el botón "Ver video"
+        const WSP = '56993000583';
+        const clp = n => '$' + Number(n).toLocaleString('es-CL');
+        const porId = Object.fromEntries(PRODUCTOS.map(x => [x.id, x]));
+        const estado = { cat: 'all', nivel: 'all', orden: 'orig' };
+
+        function tarjeta(x) {
+            const video = VIDEOS[x.id] ? `<a class="btn btn-ghost" href="${VIDEOS[x.id]}" target="_blank" rel="noopener noreferrer">Ver video</a>` : '';
+            return `<div class="card" data-category="${x.cat}">
+                <div class="card-img-container"><img src="${x.img}" alt="${x.alt}" class="card-img" loading="lazy" decoding="async"></div>
+                <div class="card-body">
+                    <span class="badge">${x.tec} - ${x.nivel}</span>
+                    <h3 class="card-title">${x.nombre}</h3>
+                    <p class="card-desc">${x.desc}</p>
+                    <ul class="specs">
+                        <li><strong>Tamaño:</strong> ${x.tamano}</li>
+                        <li><strong>Tiempo de trabajo:</strong> ${x.horas}</li>
+                        <li><strong>Edad sugerida:</strong> desde 12 años</li>
+                    </ul>
+                    <div class="card-footer">
+                        <span class="price">Desde ${clp(x.precio)}</span>
+                        <div class="card-actions">
+                            <button class="btn btn-primary btn-card" data-add="${x.id}">Agregar a mi lista</button>
+                            <a class="btn btn-ghost" target="_blank" rel="noopener noreferrer" href="https://wa.me/${WSP}?text=${encodeURIComponent('¡Hola! Quiero consultar por: ' + x.nombre)}">Consultar</a>
+                            ${video}
+                        </div>
+                    </div>
+                </div></div>`;
+        }
+
+        function pintarCatalogo() {
+            let lista = PRODUCTOS.filter(x => (estado.cat === 'all' || x.cat === estado.cat) && (estado.nivel === 'all' || x.nivel === estado.nivel));
+            if (estado.orden !== 'orig') lista = lista.slice().sort((a, b) => estado.orden === 'asc' ? a.precio - b.precio : b.precio - a.precio);
+            document.getElementById('catalogo').innerHTML = lista.length ? lista.map(tarjeta).join('') : '<p class="empty-state">No hay kits con esos filtros. Prueba otro nivel o técnica, o cuéntanos tu idea en el formulario.</p>';
+            document.getElementById('catalogo-meta').textContent = lista.length + (lista.length === 1 ? ' kit' : ' kits') + ' disponibles a pedido';
+        }
+
+        document.querySelectorAll('.tab-btn').forEach(b => b.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(t => t.classList.remove('active'));
+            b.classList.add('active'); estado.cat = b.dataset.cat; pintarCatalogo();
+        }));
+        document.getElementById('f-nivel').addEventListener('change', e => { estado.nivel = e.target.value; pintarCatalogo(); });
+        document.getElementById('f-orden').addEventListener('change', e => { estado.orden = e.target.value; pintarCatalogo(); });
+
+        /* ================= LISTA DE PEDIDO ================= */
+        const KEY = 'lechuza_lista';
+        let lista = {};
+        try {
+            const g = JSON.parse(localStorage.getItem(KEY) || '{}');
+            Object.keys(g).forEach(id => { if (porId[id] && Number.isInteger(g[id]) && g[id] > 0) lista[id] = Math.min(g[id], 20); });
+        } catch (err) { lista = {}; }
+        let opener = null;
+
+        const guardar = () => { try { localStorage.setItem(KEY, JSON.stringify(lista)); } catch (err) {} };
+        const totalItems = () => Object.values(lista).reduce((a, b) => a + b, 0);
+        const totalPrecio = () => Object.entries(lista).reduce((a, [id, q]) => a + porId[id].precio * q, 0);
+
+        function avisar(msg) {
+            const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+            clearTimeout(avisar.t); avisar.t = setTimeout(() => t.classList.remove('show'), 2200);
+        }
+
+        function pintarLista() {
+            const ul = document.getElementById('cart-items');
+            const ids = Object.keys(lista);
+            ul.innerHTML = ids.length ? ids.map(id => { const x = porId[id], q = lista[id]; return `<li>
+                <img src="${x.img}" alt="">
+                <div><div class="nm">${x.nombre}</div><div class="pr">${clp(x.precio)} c/u</div>
+                <div class="qty"><button data-q="${id}" data-d="-1" aria-label="Quitar uno">&minus;</button><span>${q}</span><button data-q="${id}" data-d="1" aria-label="Agregar uno">+</button><button class="rm" data-rm="${id}">Quitar</button></div></div></li>`; }).join('')
+                : '<li class="cart-empty">Tu lista está vacía. Agrega kits desde el catálogo.</li>';
+            document.getElementById('cart-count').textContent = totalItems();
+            document.getElementById('cart-total').textContent = clp(totalPrecio());
+            document.getElementById('cart-send').disabled = !ids.length;
+        }
+
+        function abrirLista() { opener = document.activeElement; document.body.classList.add('cart-open'); document.getElementById('cart-close').focus(); }
+        function cerrarLista() { document.body.classList.remove('cart-open'); if (opener) opener.focus(); }
+
+        document.addEventListener('click', e => {
+            const t = e.target.closest('[data-add],[data-q],[data-rm]'); if (!t) return;
+            if (t.dataset.add) { const id = t.dataset.add; lista[id] = Math.min((lista[id] || 0) + 1, 20); avisar('Agregado: ' + porId[id].nombre); }
+            if (t.dataset.q) { const id = t.dataset.q; lista[id] = (lista[id] || 0) + Number(t.dataset.d); if (lista[id] <= 0) delete lista[id]; if (lista[id] > 20) lista[id] = 20; }
+            if (t.dataset.rm) delete lista[t.dataset.rm];
+            guardar(); pintarLista();
+        });
+        document.getElementById('cart-open').addEventListener('click', abrirLista);
+        document.getElementById('cart-close').addEventListener('click', cerrarLista);
+        document.getElementById('cart-backdrop').addEventListener('click', cerrarLista);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape' && document.body.classList.contains('cart-open')) cerrarLista(); });
+        document.getElementById('cart-clear').addEventListener('click', () => { lista = {}; guardar(); pintarLista(); });
+
+        document.getElementById('cart-send').addEventListener('click', () => {
+            const inp = document.getElementById('cart-nombre'), err = document.getElementById('err-cart-nombre');
+            const n = inp.value.trim();
+            const ok = n.length >= 2 && n.length <= 40 && RE_NOMBRE.test(n);
+            err.textContent = ok ? '' : '¡Hola! Para saludarte bien, escribe tu nombre solo con letras y espacios (entre 2 y 40 caracteres). ¿Lo revisamos?';
+            err.classList.toggle('show', !ok); inp.classList.toggle('invalid', !ok);
+            if (!ok) { inp.focus(); return; }
+            const lineas = Object.entries(lista).map(([id, q]) => `- ${q} x ${porId[id].nombre} (${clp(porId[id].precio * q)})`).join('\n');
+            const nota = document.getElementById('cart-nota').value.trim();
+            const texto = `¡Hola! Soy ${n}. Quisiera pedir:\n${lineas}\n${nota ? 'Mi idea o cambios: ' + nota + '\n' : ''}Total referencial: ${clp(totalPrecio())} (sin envío).\n¿Me confirman disponibilidad y plazo?`;
+            window.open(`https://wa.me/${WSP}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+        });
+
+        /* Datos estructurados para buscadores */
+        (function () {
+            const d = document.createElement('textarea');
+            const dec = s => { d.innerHTML = s; return d.value; };
+            const ld = { '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: PRODUCTOS.map((x, i) => ({
+                '@type': 'ListItem', position: i + 1, item: { '@type': 'Product', name: dec(x.nombre), description: dec(x.desc),
+                offers: { '@type': 'Offer', priceCurrency: 'CLP', price: x.precio } } })) };
+            const s = document.createElement('script'); s.type = 'application/ld+json'; s.textContent = JSON.stringify(ld); document.head.appendChild(s);
+        })();
+
+        document.getElementById('pedir-diseno').addEventListener('click', () => {
+            document.getElementById('interes').value = 'Trabajo Personalizado a Pedido';
+            setTimeout(() => document.getElementById('mensaje').focus(), 400);
+        });
+
+        pintarCatalogo();
+        pintarLista();
+    </script>
+</body>
+</html>
